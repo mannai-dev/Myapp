@@ -7,20 +7,30 @@ pipeline
 				script{
 				checkout([$class: 'GitSCM', branches: [[name: '*/master*']],
 				userRemoteConfigs: [[
-				credentialsId: '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',
+				credentialsId: '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',
 				url: 'https://github.com/mannai-dev/Myapp.git']]])
 
 
 				}
 			}
 		}
-      stage('Build') {
-	              steps {
-		              script{
-		                sh "ansible-playbook Ansible/build.yml -i -K Ansible/inventory/host.yml"
-			                  }
-		                   }
-	                    }
-	}
-}
+		
+ 			stage('npm-Install') {
+             			steps{
+                		script{sh "sudo npm install"}
+            			}
+        		}
+			stage('build') {
+				steps{
 
+				script {sh "ansible-playbook Ansible/build.yml -i Ansible/inventory/host.yml "}
+				}
+				} 
+
+      			stage('docker'){
+         			steps {
+                         	script{sh "ansible-playbook Ansible/docker.yml -i Ansible/inventory/host.yml "}
+                        	}
+  				}
+  			}	
+  }			
