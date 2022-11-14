@@ -7,7 +7,7 @@ pipeline
 				script{
 				checkout([$class: 'GitSCM', branches: [[name: '*/master*']],
 				userRemoteConfigs: [[
-				credentialsId: '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',
+				credentialsId: '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',
 				url: 'https://github.com/mannai-dev/Myapp.git']]])
 
 
