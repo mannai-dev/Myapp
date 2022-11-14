@@ -14,13 +14,7 @@ pipeline
 				}
 			}
 		}
-		stage('npm-Install') {
-             steps{
-                script{
-                    sh "sudo npm install"
-                }
-            }
-        }
+		
  			
 			stage('build') {
 				steps{
