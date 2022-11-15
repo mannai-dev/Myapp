@@ -6,7 +6,7 @@
     build:
      path: /var/lib/jenkins/workspace/projet1
      pull: no
-    source: build
+    source: ./Dockerfile
     state: present
     force_source: true
 - name: run container docker
