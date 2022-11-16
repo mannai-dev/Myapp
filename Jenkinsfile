@@ -7,14 +7,18 @@ pipeline
 				script{
 				checkout([$class: 'GitSCM', branches: [[name: '*/master*']],
 				userRemoteConfigs: [[
-				credentialsId: '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',
+				credentialsId: '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',
 				url: 'https://github.com/mannai-dev/Myapp.git']]])
 
 
 				}
 			}
 		}
-		
+	  stage('npm-Install') {
+             steps{
+                script{ sh "sudo npm install /var/lib/jenkins/workspace/devops"  }
+            }
+        }
  			
 			stage('build') {
 				steps{
@@ -29,9 +33,13 @@ pipeline
                         	}
   				}
   				stage('docker_registry') {
-				steps{
-				script {
-				sh "ansible-playbook Ansible/docker-registry.yml -i Ansible/inventory/host.yml "
+steps{
+script {
+
+
+sh "ansible-playbook Ansible/docker-registry.yml -i Ansible/inventory/host.yml "
+
+
 }
 }
 }
