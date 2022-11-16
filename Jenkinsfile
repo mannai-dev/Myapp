@@ -8,13 +8,13 @@ pipeline
 				checkout([$class: 'GitSCM', branches: [[name: '*/master*']],
 				userRemoteConfigs: [[
 				credentialsId: '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',
-				url: 'https://github.com/mannai-dev/Myapp.git']]])
+				url: 'https://github.com/mannai-dev/Myapp.git.']]])
 				}
 				}
 				}
 	  		stage('npm-Install') {
              		steps{
-                		script{ sh "sudo npm install /var/lib/jenkins/workspace/devops"  }
+                		script{ sh "sudo npm install"  }
             		}
         		} 			
 			stage('build') {
