@@ -10,6 +10,6 @@
 - name: Tag and push to docker hub
   docker_image:
     name: projet1:latest
-    repository: mannai3/projet1
+    repository: mannai3/devops
     tag: end 
     push: yes
