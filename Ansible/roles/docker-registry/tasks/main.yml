@@ -11,5 +11,5 @@
   docker_image:
     name: devops:latest
     repository: mannai3/devops
-    tag: end 
     push: yes
+    source: local
