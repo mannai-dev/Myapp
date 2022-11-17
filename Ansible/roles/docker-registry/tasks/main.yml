@@ -5,7 +5,7 @@
 - name: Log into DockerHub
   docker_login:
     username: mannai3
-    password: dckr_pat_Gzy651BIWhhlDIQcE2r0zG31MeE
+    password: 56182175 ma
 
 - name: Tag and push to docker hub
   docker_image:
